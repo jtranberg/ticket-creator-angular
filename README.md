@@ -1,59 +1,85 @@
-# TicketTrackerNg
+# Ticket Tracker (Angular)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.0.
+A lightweight ticket-tracking dashboard built with **modern Angular** to demonstrate core framework fundamentals alongside a comparable React implementation.
 
-## Development server
+This app intentionally runs **without a backend** and uses a seeded in-memory store so functionality is visible immediately on load.
 
-To start a local development server, run:
+---
+
+## ✨ Features
+
+- 📋 Ticket list with live counters (All / Open / In Progress / Done)
+- ➕ Create tickets using **Reactive Forms** with validation
+- 👁 View ticket details
+- ✏️ Edit ticket status, priority, and content
+- 🗑 Delete tickets
+- 🔄 Reset demo data or clear all tickets
+- ⚡ Instant UI updates via RxJS state
+
+---
+
+## 🧠 Architecture Overview
+
+### Standalone Components
+- Uses Angular’s **standalone component** model (no NgModules)
+- Each page declares its own dependencies explicitly
+
+### Routing
+- Router-first architecture
+- Clean route structure:
+  - `/tickets`
+  - `/tickets/new`
+  - `/tickets/:id`
+  - `/tickets/:id/edit`
+
+### State Management
+- Central `TicketsService` using `BehaviorSubject`
+- Acts as a simple client-side store
+- Derived state (filters, counters) computed via RxJS pipelines
+
+### Forms
+- **Reactive Forms** for Create and Edit workflows
+- Built-in validation and clean submit handling
+
+---
+
+## 🧪 Seeded Demo Data
+
+The app initializes with a small set of demo tickets so the UI is usable immediately without setup.
+
+This mirrors common real-world practice where:
+- Development uses mock data
+- The service interface later connects to a real API
+
+The store can be:
+- Reset to demo data
+- Cleared entirely
+
+---
+
+## 🛠 Tech Stack
+
+- Angular (standalone components)
+- Angular Router
+- RxJS
+- Reactive Forms
+- TypeScript
+- Minimal CSS (glassmorphic dashboard style)
+
+---
+
+## 🎯 Purpose
+
+This project exists to **demonstrate Angular fundamentals** and contrast them with an equivalent React implementation, showing the ability to:
+
+- Switch frameworks confidently
+- Apply idiomatic patterns
+- Build real CRUD flows, not just demos
+
+---
+
+## ▶️ Running Locally
 
 ```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+npm install
+npm start
